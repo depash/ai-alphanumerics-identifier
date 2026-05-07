@@ -17,8 +17,11 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-mndata = MNIST('./images')
+mndataNum = MNIST('./images/numbers')
+mndataChar = MNIST('./images/letters')
 
-images, labels = mndata.load_training()
+images, labels = mndataChar.load_training()
+
+readable_labels = [chr(64 + l) for l in labels]
 
 index = random.randrange(0, len(images))
