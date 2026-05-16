@@ -11,7 +11,7 @@ import torch.nn.functional as F
 from torchvision import models, transforms
 from PIL import Image
 import matplotlib.pyplot as plt
-from mnist import MNIST
+from mnist import MNIST # type: ignore
 
 app = FastAPI()
 
@@ -103,7 +103,7 @@ if __name__ == '__main__':
         device = torch.device('cuda')
     else:
         try:
-            import torch_directml
+            import torch_directml # type: ignore
             device = torch_directml.device()
             print("Using AMD GPU via DirectML")
         except ImportError:
